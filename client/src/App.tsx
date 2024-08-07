@@ -1,9 +1,31 @@
-import React from 'react'
-
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Dashboard } from "./pages/dashboard";
+import { Auth } from "./pages/auth";
 const App = () => {
-  return (
-    <div>App</div>
-  )
-}
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      // element error
+      element: <Dashboard />,
+      errorElement: (
+        <div>
+          <h1>Error!</h1>
+        </div>
+      ),
+    },
+    {
+      path: "/auth",
+      // element error
+      element: <Auth />,
+      errorElement: (
+        <div>
+          <h1>Error!</h1>
+        </div>
+      ),
+    },
+  ]);
 
-export default App
+  return <RouterProvider router={router} />;
+};
+
+export default App;
